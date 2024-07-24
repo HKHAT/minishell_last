@@ -28,6 +28,7 @@ void free_split(char **arr)
     }
 }
 
+
 int main(int argc, char **argv, char **envp)
 {
     Token   tokens[MAX_TOKENS];
@@ -50,8 +51,7 @@ int main(int argc, char **argv, char **envp)
         if (strlen(line) > 0)
             add_history(line);
         nb_token = 0;
-        lex(line, tokens, &nb_token,data->env_list);
-        if (check_syntaxe(tokens, nb_token))
+        if (lex(line, tokens, &nb_token,data->env_list)|check_syntaxe(tokens, nb_token))
         {
             free(line);
             continue ;
